@@ -16,11 +16,14 @@ import java.util.stream.Collectors;
 public class PacienteService {
     public static Logger logger = Logger.getLogger(PacienteService.class);
 
-    @Autowired
-    private PacienteRepository pacienteRepository;
+    private final PacienteRepository pacienteRepository;
 
-    @Autowired
-    private DomicilioService domicilioService;
+    private final DomicilioService domicilioService;
+
+    public PacienteService(PacienteRepository pacienteRepository, DomicilioService domicilioService) {
+        this.pacienteRepository = pacienteRepository;
+        this.domicilioService = domicilioService;
+    }
 
     public PacienteDTO crearPaciente(PacienteDTO pacienteDTO){
         Paciente paciente = new Paciente(pacienteDTO);

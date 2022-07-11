@@ -15,8 +15,11 @@ import java.util.stream.Collectors;
 public class OdontologoService {
     public static Logger logger = Logger.getLogger(PacienteService.class);
 
-    @Autowired
-    private OdontologoRepository odontologoRepository;
+    private final OdontologoRepository odontologoRepository;
+
+    public OdontologoService(OdontologoRepository odontologoRepository) {
+        this.odontologoRepository = odontologoRepository;
+    }
 
     public OdontologoDTO crearOdontologo(OdontologoDTO odontologoDTO) {
         Odontologo odontologo = new Odontologo(odontologoDTO);

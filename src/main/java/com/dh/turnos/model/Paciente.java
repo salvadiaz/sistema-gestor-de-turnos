@@ -44,10 +44,17 @@ public class Paciente {
     private Set<Turno> turnos = new HashSet<>();
 
     public Paciente(PacienteDTO pacienteDTO) {
-        this.nombre = pacienteDTO.getNombre();
-        this.apellido = pacienteDTO.getApellido();
-        this.dni = pacienteDTO.getDni();
-        this.domicilio = pacienteDTO.getDomicilio();
-        this.fechaIngreso = LocalDate.now();
+            this.nombre = pacienteDTO.getNombre();
+            this.apellido = pacienteDTO.getApellido();
+            this.dni = pacienteDTO.getDni();
+            this.domicilio = pacienteDTO.getDomicilio();
+            this.fechaIngreso = LocalDate.now();
+    }
+
+    public Paciente(String nombre, String apellido, String dni, Domicilio domicilio) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+        this.domicilio = domicilio;
     }
 }

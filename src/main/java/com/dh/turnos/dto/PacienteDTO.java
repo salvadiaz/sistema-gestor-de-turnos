@@ -3,6 +3,7 @@ package com.dh.turnos.dto;
 import com.dh.turnos.model.Domicilio;
 import com.dh.turnos.model.Paciente;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 import java.time.LocalDate;
