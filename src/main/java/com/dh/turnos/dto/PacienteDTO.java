@@ -6,8 +6,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import lombok.Getter;
 
 import java.time.LocalDate;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 @Getter
 public class PacienteDTO {
@@ -20,7 +18,6 @@ public class PacienteDTO {
 
     final private Domicilio domicilio;
 
-    private Set<TurnoDTO> turnos;
 
     public PacienteDTO(Paciente paciente) {
         this.id = paciente.getId();
@@ -29,9 +26,6 @@ public class PacienteDTO {
         this.dni = paciente.getDni();
         this.fechaIngreso = paciente.getFechaIngreso();
         this.domicilio = paciente.getDomicilio();
-        this.turnos = paciente.getTurnos().stream()
-                .map(TurnoDTO::new)
-                .collect(Collectors.toSet());
     }
 
     @JsonCreator
