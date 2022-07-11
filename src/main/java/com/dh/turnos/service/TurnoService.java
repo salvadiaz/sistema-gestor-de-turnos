@@ -18,14 +18,17 @@ import java.util.stream.Collectors;
 public class TurnoService {
     public static Logger logger = Logger.getLogger(PacienteService.class);
 
-    @Autowired
-    private TurnoRepository turnoRepository;
+    private final TurnoRepository turnoRepository;
 
-    @Autowired
-    private PacienteService pacienteService;
+    private final PacienteService pacienteService;
 
-    @Autowired
-    private OdontologoService odontologoService;
+    private final OdontologoService odontologoService;
+
+    public TurnoService(TurnoRepository turnoRepository, PacienteService pacienteService, OdontologoService odontologoService) {
+        this.turnoRepository = turnoRepository;
+        this.pacienteService = pacienteService;
+        this.odontologoService = odontologoService;
+    }
 
     public TurnoDTO crearTurno(NuevoTurnoDTO nuevoTurnoDTO) {
         Paciente paciente = pacienteService.buscarPorId(nuevoTurnoDTO.getPacienteId());
