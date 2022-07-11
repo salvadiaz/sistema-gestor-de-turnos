@@ -13,10 +13,10 @@ import java.util.Date;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class Turno {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "turno_seq")
+    @SequenceGenerator(name = "turno_seq", sequenceName = "turno_seq", allocationSize = 1)
     private Long id;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
@@ -36,5 +36,15 @@ public class Turno {
         this.paciente = paciente;
         this.odontologo = odontologo;
         this.fechaHora = fechaHora;
+    }
+
+    @Override
+    public String toString() {
+        return "Turno{" +
+                "id=" + id +
+                ", paciente=" + paciente +
+                ", odontologo=" + odontologo +
+                ", fechaHora=" + fechaHora +
+                '}';
     }
 }

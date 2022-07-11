@@ -13,10 +13,10 @@ import java.util.Set;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class Odontologo {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "odontologo_seq")
+    @SequenceGenerator(name = "odontologo_seq", sequenceName = "odontologo_seq", allocationSize = 1)
     private Long id;
 
     @Column
@@ -39,5 +39,15 @@ public class Odontologo {
         this.nombre = odontologoDTO.getNombre();
         this.apellido = odontologoDTO.getApellido();
         this.matricula = odontologoDTO.getMatricula();
+    }
+
+    @Override
+    public String toString() {
+        return "Odontologo{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", matricula=" + matricula +
+                '}';
     }
 }

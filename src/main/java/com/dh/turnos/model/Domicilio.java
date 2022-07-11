@@ -12,7 +12,8 @@ import javax.persistence.*;
 @ToString
 public class Domicilio {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "domicilio_seq")
+    @SequenceGenerator(name = "domicilio_seq", sequenceName = "domicilio_seq", allocationSize = 1)
     private Long id;
 
     @Column
