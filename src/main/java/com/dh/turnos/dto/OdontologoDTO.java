@@ -14,7 +14,7 @@ public class OdontologoDTO {
     final private String apellido;
     final private Integer matricula;
 
-    Set<TurnoDTO> turnos;
+    private Set<TurnoDTO> turnos;
 
     @JsonCreator
     public OdontologoDTO(String nombre, String apellido, Integer matricula) {

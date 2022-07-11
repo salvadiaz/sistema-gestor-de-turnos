@@ -40,7 +40,7 @@ public class Paciente {
     @Setter
     private Domicilio domicilio;
 
-    @OneToMany(mappedBy = "paciente", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "paciente", fetch = FetchType.LAZY)
     private Set<Turno> turnos = new HashSet<>();
 
     public Paciente(PacienteDTO pacienteDTO) {
