@@ -50,11 +50,14 @@ public class TurnoService {
                 .orElseThrow(() -> new NotFoundException("Turno no encontrado"));
     }
 
-    public TurnoDTO modificar(Long id, TurnoDTO turnoDTO) {
+    public TurnoDTO modificar(Long id, NuevoTurnoDTO nuevoTurnoDTO) {
+        Paciente paciente = pacienteService.buscarPorId(nuevoTurnoDTO.getPacienteId());
+        Odontologo odontologo = odontologoService.buscarPorId(nuevoTurnoDTO.getOdontologoId());
+
         Turno turno = buscarPorId(id);
-        turno.setFechaHora(turnoDTO.getFechaHora());
-        turno.setOdontologo(new Odontologo(turnoDTO.getOdontologo()));
-        turno.setPaciente(new Paciente(turnoDTO.getPaciente()));
+        turno.setFechaHora(nuevoTurnoDTO.getFechaHora());
+        turno.setOdontologo(odontologo);
+        turno.setPaciente(paciente);
 
         logger.info("Modificando turno " + turno);
 

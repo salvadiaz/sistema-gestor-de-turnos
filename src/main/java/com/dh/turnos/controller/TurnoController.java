@@ -34,7 +34,7 @@ public class TurnoController {
 
     @PutMapping("/{id}")
     public ResponseEntity<TurnoDTO> modificar(@PathVariable(name = "id") Long id,
-                                                   @RequestBody TurnoDTO turnoDTO) {
+                                                   @RequestBody NuevoTurnoDTO turnoDTO) {
         return ResponseEntity.ok(turnoService.modificar(id, turnoDTO));
     }
 

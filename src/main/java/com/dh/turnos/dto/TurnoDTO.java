@@ -7,16 +7,19 @@ import java.time.LocalDateTime;
 
 @Getter
 public class TurnoDTO {
-    final private Long id;
-    final private PacienteDTO paciente;
-    final private OdontologoDTO odontologo;
+    private Long id;
+    private PacienteDTO paciente;
+    private OdontologoDTO odontologo;
 
-    final private LocalDateTime fechaHora;
+    private LocalDateTime fechaHora;
 
     public TurnoDTO(Turno turno) {
         this.id = turno.getId();
         this.paciente = new PacienteDTO(turno.getPaciente());
         this.odontologo = new OdontologoDTO(turno.getOdontologo());
         this.fechaHora = turno.getFechaHora();
+    }
+
+    public TurnoDTO() {
     }
 }
