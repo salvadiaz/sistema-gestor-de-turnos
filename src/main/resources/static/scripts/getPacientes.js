@@ -21,6 +21,7 @@ function cargarInformacionPacientes(pacientes) {
             <td>${domicilio.numero}</td>
             <td>${domicilio.localidad}</td>
             <td>${domicilio.provincia}</td>
+            <td>${paciente.fechaIngreso}</td>
             <td><button onClick="actualizarPaciente(${paciente.id})">Editar✏️</button></td>
             <td><button onClick="eliminarPaciente(${paciente.id})">Eliminar❌</button></td>
         </tr>
